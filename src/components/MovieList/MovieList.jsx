@@ -1,16 +1,21 @@
 // import css from "./MovieList.module.css";
 
-import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
-function MovieList() {
-  useEffect(() => {
-    const fetchMovies = async () => {
-      /*code*/
-    };
+// import { NavLink } from "react-router-dom";
 
-    fetchMovies();
-  });
-  return <></>;
+function MovieList({ movies }) {
+  return (
+    // <>{console.log(movies)}</>
+
+    <ul>
+      {movies.map(({ id, title }) => (
+        <li key={id}>
+          <Link>{title}</Link>
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export default MovieList;
