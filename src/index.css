@@ -42,3 +42,18 @@ img {
 svg {
   display: block;
 }
+
+.container {
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.sectionMovies {
+  padding-top: 0;
+}

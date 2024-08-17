@@ -1,12 +1,34 @@
 .nav {
-    padding: 20px;
+    padding: 20px 0 20px;
     display: flex;
+    justify-content: center;
     column-gap: 16px;
-    background-color: rgba(0, 0, 250, 0.2);
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
-.link {}
+.link {
+    padding: 10px 8px;
+    min-width: 210px;
 
+    border: none;
+    border-radius: 8px;
+
+    text-align: center;
+    color: black;
+    font-size: 18px;
+    background-color: white;
+    transition:
+        color 250ms linear,
+        background-color 250ms linear;
+}
+
+.link:hover,
+.link:focus,
 .active {
-    color: red;
+    color: white;
+    background-color: black;
 }
+
+/* .active {
+    color: red;
+} */

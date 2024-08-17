@@ -26,7 +26,7 @@ function SearchBar({ onSubmit }) {
   };
 
   return (
-    <header className={css.header}>
+    <div className={css.header}>
       <form className={css.form} onSubmit={handleSubmitForm}>
         <Toaster />
         <input
@@ -34,7 +34,7 @@ function SearchBar({ onSubmit }) {
           type="text"
           autoComplete="off"
           autoFocus
-          placeholder="Search images and photos"
+          placeholder="Search movies"
           value={query}
           onChange={handleChangeQuery}
         />
@@ -42,7 +42,7 @@ function SearchBar({ onSubmit }) {
           Search
         </button>
       </form>
-    </header>
+    </div>
   );
 }
 

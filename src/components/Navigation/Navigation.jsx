@@ -8,14 +8,18 @@ function Navigation() {
   };
 
   return (
-    <nav className={css.nav}>
-      <NavLink to="/" className={buildLinkClass}>
-        Home
-      </NavLink>
-      <NavLink to="/movies" className={buildLinkClass}>
-        Movies
-      </NavLink>
-    </nav>
+    <header>
+      <div className="container">
+        <nav className={css.nav}>
+          <NavLink to="/" className={buildLinkClass}>
+            Home
+          </NavLink>
+          <NavLink to="/movies" className={buildLinkClass}>
+            Movies
+          </NavLink>
+        </nav>
+      </div>
+    </header>
   );
 }
 

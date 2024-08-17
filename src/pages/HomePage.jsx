@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
+
 import MovieList from "../components/MovieList/MovieList";
-import { getTopMovies } from "../js/themoviedb-api";
 import Loader from "../components/Loader/Loader";
+
+import { getTopMovies } from "../js/themoviedb-api";
 
 function HomePage() {
   const [movies, setMovies] = useState([]);
-  const [loader, setloader] = useState(false);
+  const [loader, setLoader] = useState(false);
   const [error, setError] = useState(null);
   const [isEmpty, setIsEmpty] = useState(false);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      setloader(true);
+      setLoader(true);
       try {
         const { results } = await getTopMovies();
         if (!results.length) return setIsEmpty(true);
@@ -19,18 +21,21 @@ function HomePage() {
       } catch (err) {
         setError(err);
       } finally {
-        setloader(false);
+        setLoader(false);
       }
     };
 
     fetchMovies();
   }, []);
+
   return (
-    <>
-      {loader && <Loader />}
-      {!isEmpty && <MovieList movies={movies} />}
-      {error && <p>Error</p>}
-    </>
+    <section>
+      <div className="container">
+        {!isEmpty && <MovieList movies={movies} />}
+        {loader && <Loader />}
+        {error && <p>Error</p>}
+      </div>
+    </section>
   );
 }
 

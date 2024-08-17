@@ -1,8 +1,8 @@
 .header {
     display: flex;
     justify-content: center;
-    padding: 20px 0;
-    background-color: rgba(0, 0, 255, 0.3);
+    padding: 0 0 20px;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .form {
@@ -15,10 +15,10 @@
 }
 
 .btn {
-    min-width: 120px;
-    color: green;
-    font-size: 18px;
-    background-color: aquamarine;
+    min-width: 80px;
+    color: black;
+    font-size: 12px;
+    background-color: white;
     transition:
         color 250ms linear,
         background-color 250ms linear;
@@ -26,13 +26,13 @@
 
 .btn:hover,
 .btn:focus {
-    background-color: green;
-    color: aquamarine;
+    background-color: black;
+    color: white;
 }
 
 .input,
 .btn {
-    padding: 12px 8px;
+    padding: 8px 8px;
     border: none;
     border-radius: 8px;
 
