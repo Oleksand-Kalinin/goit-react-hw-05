@@ -32,7 +32,7 @@ function MovieCast() {
   return (
     <>
       {loader && <Loader />}
-      {movie && (
+      {movie?.cast.length > 0 ? (
         <ul className={css.listCast}>
           {movie.cast.map(({ id, profile_path, name }) => (
             <li key={id} className={css.itemCast}>
@@ -50,6 +50,8 @@ function MovieCast() {
             </li>
           ))}
         </ul>
+      ) : (
+        <p className={css.listCast}>Not found cast</p>
       )}
       {error && <p>Error</p>}
     </>

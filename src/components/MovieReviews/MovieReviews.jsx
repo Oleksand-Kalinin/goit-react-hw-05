@@ -32,7 +32,7 @@ function MovieReviews() {
   return (
     <>
       {loader && <Loader />}
-      {movie && (
+      {movie?.length > 0 ? (
         <ul className={css.listReviews}>
           {movie.map(({ id, author, content }) => (
             <li key={id} className={css.itemReviews}>
@@ -44,6 +44,8 @@ function MovieReviews() {
             </li>
           ))}
         </ul>
+      ) : (
+        <p className={css.listReviews}>Not found reviews</p>
       )}
       {error && <p>Error</p>}
     </>
