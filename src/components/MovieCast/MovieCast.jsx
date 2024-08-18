@@ -15,6 +15,7 @@ function MovieCast() {
 
   useEffect(() => {
     const fetchMovie = async () => {
+      setIsEmpty(false);
       setLoader(true);
 
       try {
