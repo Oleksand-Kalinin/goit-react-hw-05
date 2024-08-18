@@ -1,0 +1,28 @@
+.listReviews {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 16px;
+    background-color: azure;
+    border-radius: 16px;
+}
+
+.itemReviews {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-radius: 16px;
+    background-color: white;
+    line-height: 1.5;
+}
+
+.nickname {
+    font-size: 14px;
+    color: blue;
+}
+
+.authorReview {
+    font-size: 18px;
+}

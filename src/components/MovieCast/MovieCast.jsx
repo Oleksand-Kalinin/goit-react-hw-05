@@ -1,4 +1,4 @@
-// import css from "./MovieCast.module.css";
+import css from "./MovieCast.module.css";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,11 +33,15 @@ function MovieCast() {
     <>
       {loader && <Loader />}
       {movie && (
-        <ul>
+        <ul className={css.listCast}>
           {movie.cast.map(({ id, profile_path, name }) => (
-            <li key={id}>
+            <li key={id} className={css.itemCast}>
               <img
-                src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                src={
+                  profile_path
+                    ? `https://image.tmdb.org/t/p/w500${profile_path}`
+                    : "https://emedia1.nhs.wales/HEIW2/cache/file/F4C33EF0-69EE-4445-94018B01ADCF6FD4_medium.png"
+                }
                 alt="actor's photo"
                 width="100"
                 height="200"

@@ -1,10 +1,16 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import css from "./MovieItem.module.css";
+import { useRef } from "react";
 
 function MovieItem({ movie }) {
+  const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? "/movies");
+
   return (
     <div>
-      <Link className={css.linkGoBack}>Go back</Link>
+      <Link className={css.linkGoBack} to={backLinkRef.current}>
+        Go back
+      </Link>
 
       <div className={css.wrapperMovie}>
         <div className={css.moviePoster}>

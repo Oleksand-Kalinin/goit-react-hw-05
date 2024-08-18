@@ -1,4 +1,4 @@
-// import css from "./MovieReviews.module.css";
+import css from "./MovieReviews.module.css";
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -33,10 +33,13 @@ function MovieReviews() {
     <>
       {loader && <Loader />}
       {movie && (
-        <ul>
+        <ul className={css.listReviews}>
           {movie.map(({ id, author, content }) => (
-            <li key={id}>
-              <p>{author}</p>
+            <li key={id} className={css.itemReviews}>
+              <p className={css.authorReview}>
+                <span className={css.nickname}>nickname: </span>
+                {author}
+              </p>
               <p>{content}</p>
             </li>
           ))}

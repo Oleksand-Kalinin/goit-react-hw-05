@@ -57,3 +57,28 @@ section {
 .sectionMovies {
   padding-top: 0;
 }
+
+.pageNotFound {
+  font-size: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageNotFound .linkHome {
+  font-size: 18px;
+  padding: 8px 12px;
+  background-color: antiquewhite;
+  border-radius: 16px;
+  transition:
+    background-color 250ms linear,
+    color 250ms linear;
+}
+
+.pageNotFound .linkHome:hover,
+.pageNotFound .linkHome:focus {
+  background-color: black;
+  color: white;
+}
