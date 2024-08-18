@@ -9,6 +9,7 @@ function MovieReviews() {
   const [loader, setLoader] = useState(false);
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const { movieId } = useParams("movieId");
 
@@ -18,6 +19,7 @@ function MovieReviews() {
 
       try {
         const { results } = await getMovieReviews(movieId);
+        if (!results.length) return setIsEmpty(true);
         setMovie(results);
       } catch (err) {
         setError(err);
@@ -32,9 +34,9 @@ function MovieReviews() {
   return (
     <>
       {loader && <Loader />}
-      {movie?.length > 0 ? (
+      {!isEmpty ? (
         <ul className={css.listReviews}>
-          {movie.map(({ id, author, content }) => (
+          {movie?.map(({ id, author, content }) => (
             <li key={id} className={css.itemReviews}>
               <p className={css.authorReview}>
                 <span className={css.nickname}>nickname: </span>

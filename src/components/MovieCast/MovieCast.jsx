@@ -9,6 +9,7 @@ function MovieCast() {
   const [loader, setLoader] = useState(false);
   const [movie, setMovie] = useState(null);
   const [error, setError] = useState(null);
+  const [isEmpty, setIsEmpty] = useState(false);
 
   const { movieId } = useParams("movieId");
 
@@ -18,6 +19,7 @@ function MovieCast() {
 
       try {
         const data = await getMovieCredits(movieId);
+        if (!data.cast.length) return setIsEmpty(true);
         setMovie(data);
       } catch (err) {
         setError(err);
@@ -32,9 +34,9 @@ function MovieCast() {
   return (
     <>
       {loader && <Loader />}
-      {movie?.cast.length > 0 ? (
+      {!isEmpty ? (
         <ul className={css.listCast}>
-          {movie.cast.map(({ id, profile_path, name }) => (
+          {movie?.cast.map(({ id, profile_path, name }) => (
             <li key={id} className={css.itemCast}>
               <img
                 src={
