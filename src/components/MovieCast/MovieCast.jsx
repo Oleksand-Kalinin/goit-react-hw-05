@@ -32,18 +32,21 @@ function MovieCast() {
   return (
     <>
       {loader && <Loader />}
-      {movie &&
-        movie.cast.map(({ id, profile_path, name }) => (
-          <li key={id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${profile_path}`}
-              alt="actor's photo"
-              width="100"
-              height="200"
-            />
-            <p>{name}</p>
-          </li>
-        ))}
+      {movie && (
+        <ul>
+          {movie.cast.map(({ id, profile_path, name }) => (
+            <li key={id}>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${profile_path}`}
+                alt="actor's photo"
+                width="100"
+                height="200"
+              />
+              <p>{name}</p>
+            </li>
+          ))}
+        </ul>
+      )}
       {error && <p>Error</p>}
     </>
   );

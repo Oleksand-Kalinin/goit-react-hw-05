@@ -12,7 +12,7 @@ function MovieList({ movies }) {
               src={
                 poster_path
                   ? `https://image.tmdb.org/t/p/w500${poster_path}`
-                  : `src/img/no-image-poster.png`
+                  : "https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png"
               }
               alt="poster"
               width="200"

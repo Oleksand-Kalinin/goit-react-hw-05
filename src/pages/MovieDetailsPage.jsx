@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getMovie } from "../js/themoviedb-api";
 import Loader from "../components/Loader/Loader";
+import MovieItem from "../components/MovieItem/MovieItem";
 
 function MovieDetailsPage() {
   const [loader, setLoader] = useState(false);
@@ -27,49 +28,12 @@ function MovieDetailsPage() {
     fetchMovie();
   }, [movieId]);
 
-  // const { poster_path, title, release_date, genres, vote_average, overview } = movie;
-
   return (
     <section>
       <div className="container">
         {loader && <Loader />}
 
-        {movie && (
-          <div>
-            <img
-              src={
-                movie.poster_path
-                  ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                  : `src/img/no-image-poster.png`
-              }
-              alt="poster"
-              width="400"
-              height="500"
-            />
-            <h2>
-              {movie.title} ({movie.release_date.slice(0, 4)})
-            </h2>
-
-            <p>Genres: </p>
-            <ul>
-              {movie.genres.map((el) => (
-                <li key={el.id}>{el.name}</li>
-              ))}
-            </ul>
-
-            <p>User Score: {movie.vote_average}</p>
-
-            <div>
-              <h3>Overview</h3>
-              <p>{movie.overview}</p>
-            </div>
-
-            <Link to="cast">Cast</Link>
-            <Link to="reviews">Reviews</Link>
-
-            <Outlet />
-          </div>
-        )}
+        {movie && <MovieItem movie={movie} />}
 
         {error && <p>Error</p>}
       </div>

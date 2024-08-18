@@ -32,13 +32,16 @@ function MovieReviews() {
   return (
     <>
       {loader && <Loader />}
-      {movie &&
-        movie.map(({ id, author, content }) => (
-          <li key={id}>
-            <p>{author}</p>
-            <p>{content}</p>
-          </li>
-        ))}
+      {movie && (
+        <ul>
+          {movie.map(({ id, author, content }) => (
+            <li key={id}>
+              <p>{author}</p>
+              <p>{content}</p>
+            </li>
+          ))}
+        </ul>
+      )}
       {error && <p>Error</p>}
     </>
   );

@@ -26,7 +26,7 @@ function SearchBar({ onSubmit }) {
   };
 
   return (
-    <div className={css.header}>
+    <div className={css.searchBar}>
       <form className={css.form} onSubmit={handleSubmitForm}>
         <Toaster />
         <input
