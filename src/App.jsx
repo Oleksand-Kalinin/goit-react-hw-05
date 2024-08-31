@@ -16,7 +16,6 @@ import Loader from "./components/Loader/Loader";
 function App() {
   return (
     <>
-      {console.log("render App")}
       <Navigation />
 
       <main>

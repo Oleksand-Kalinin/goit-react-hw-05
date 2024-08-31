@@ -30,8 +30,6 @@ function MovieDetailsPage() {
 
   return (
     <section>
-      {console.log("render MovieDetailsPage")}
-
       <div className="container">
         {loader && <Loader />}
 
